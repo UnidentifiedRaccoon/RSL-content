@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_common_enums_release_statuses",
+  "info": {
+    "displayName": "ReleaseStatus",
+    "icon": "stack"
+  },
+  "options": {},
+  "attributes": {
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "RELEASE",
+        "DRAFT",
+        "DEVELOP"
+      ],
+      "required": true,
+      "default": "DEVELOP"
+    }
+  }
+}

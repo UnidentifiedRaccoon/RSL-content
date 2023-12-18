@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_common_enums_step_types",
+  "info": {
+    "displayName": "StepTypes",
+    "icon": "stack"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "READ",
+        "WATCH",
+        "PRACTICE",
+        "TEST"
+      ],
+      "default": "READ",
+      "required": true
+    }
+  }
+}

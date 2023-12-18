@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_content_components_texts",
+  "info": {
+    "displayName": "Text",
+    "icon": "filter",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
