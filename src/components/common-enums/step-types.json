@@ -1,8 +1,9 @@
 {
   "collectionName": "components_common_enums_step_types",
   "info": {
-    "displayName": "StepTypes",
-    "icon": "stack"
+    "displayName": "StepType",
+    "icon": "stack",
+    "description": ""
   },
   "options": {},
   "attributes": {

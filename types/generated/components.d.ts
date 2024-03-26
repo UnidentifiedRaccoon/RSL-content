@@ -16,8 +16,9 @@ export interface CommonEnumsReleaseStatus extends Schema.Component {
 export interface CommonEnumsStepTypes extends Schema.Component {
   collectionName: 'components_common_enums_step_types';
   info: {
-    displayName: 'StepTypes';
+    displayName: 'StepType';
     icon: 'stack';
+    description: '';
   };
   attributes: {
     type: Attribute.Enumeration<['READ', 'WATCH', 'PRACTICE', 'TEST']> &
