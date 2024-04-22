@@ -55,3 +55,10 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 ---
 
 <sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+
+
+## ✨ App runs on Yandex.Cloud
+
+http://51.250.97.205:1337/admin
+
+http://51.250.97.205:1337/api
