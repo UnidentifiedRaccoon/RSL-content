@@ -362,6 +362,138 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiLectureLecture extends Schema.CollectionType {
+  collectionName: 'lectures';
+  info: {
+    singularName: 'lecture';
+    pluralName: 'lectures';
+    displayName: 'Lecture';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    status: Attribute.Component<'common-enums.release-status'> &
+      Attribute.Required;
+    steps: Attribute.Relation<
+      'api::lecture.lecture',
+      'oneToMany',
+      'api::step.step'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::lecture.lecture',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::lecture.lecture',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiModuleModule extends Schema.CollectionType {
+  collectionName: 'modules';
+  info: {
+    singularName: 'module';
+    pluralName: 'modules';
+    displayName: 'Module';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text;
+    lectures: Attribute.Relation<
+      'api::module.module',
+      'oneToMany',
+      'api::lecture.lecture'
+    >;
+    status: Attribute.Component<'common-enums.release-status'> &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::module.module',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::module.module',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiStepStep extends Schema.CollectionType {
+  collectionName: 'steps';
+  info: {
+    singularName: 'step';
+    pluralName: 'steps';
+    displayName: 'Step';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text;
+    status: Attribute.Component<'common-enums.release-status'> &
+      Attribute.Required;
+    content: Attribute.DynamicZone<
+      ['content-components.text', 'content-components.video']
+    >;
+    type: Attribute.Component<'common-enums.step-types'> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::step.step', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::step.step', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiWordWord extends Schema.CollectionType {
+  collectionName: 'words';
+  info: {
+    singularName: 'word';
+    pluralName: 'words';
+    displayName: 'Word';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    spelling: Attribute.String;
+    video_link: Attribute.String;
+    video: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::word.word', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::word.word', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -677,114 +809,6 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
-export interface ApiLectureLecture extends Schema.CollectionType {
-  collectionName: 'lectures';
-  info: {
-    singularName: 'lecture';
-    pluralName: 'lectures';
-    displayName: 'Lecture';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
-    status: Attribute.Component<'common-enums.release-status'> &
-      Attribute.Required;
-    steps: Attribute.Relation<
-      'api::lecture.lecture',
-      'oneToMany',
-      'api::step.step'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::lecture.lecture',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::lecture.lecture',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiModuleModule extends Schema.CollectionType {
-  collectionName: 'modules';
-  info: {
-    singularName: 'module';
-    pluralName: 'modules';
-    displayName: 'Module';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    description: Attribute.Text;
-    lectures: Attribute.Relation<
-      'api::module.module',
-      'oneToMany',
-      'api::lecture.lecture'
-    >;
-    status: Attribute.Component<'common-enums.release-status'> &
-      Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::module.module',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::module.module',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiStepStep extends Schema.CollectionType {
-  collectionName: 'steps';
-  info: {
-    singularName: 'step';
-    pluralName: 'steps';
-    displayName: 'Step';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    description: Attribute.Text;
-    status: Attribute.Component<'common-enums.release-status'> &
-      Attribute.Required;
-    content: Attribute.DynamicZone<
-      ['content-components.text', 'content-components.video']
-    >;
-    type: Attribute.Component<'common-enums.step-types'> & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::step.step', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::step.step', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -795,15 +819,16 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::lecture.lecture': ApiLectureLecture;
+      'api::module.module': ApiModuleModule;
+      'api::step.step': ApiStepStep;
+      'api::word.word': ApiWordWord;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
-      'api::lecture.lecture': ApiLectureLecture;
-      'api::module.module': ApiModuleModule;
-      'api::step.step': ApiStepStep;
     }
   }
 }
