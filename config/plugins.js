@@ -17,6 +17,7 @@ module.exports = ({env}) => ({
         mode: 'allow',
         uids: {
           'api::word.word': true,
+          'api::category.category': true,
         }
       },
     }

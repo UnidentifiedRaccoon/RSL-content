@@ -4,7 +4,8 @@
   "info": {
     "singularName": "word",
     "pluralName": "words",
-    "displayName": "Word"
+    "displayName": "Word",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,18 +15,28 @@
     "spelling": {
       "type": "string"
     },
-    "video_link": {
+    "videoURL": {
       "type": "string"
     },
     "video": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "words"
+    },
+    "slug": {
+      "type": "string"
     }
   }
 }
