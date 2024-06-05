@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_content_components_htmls",
+  "info": {
+    "displayName": "Html",
+    "icon": "file"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "text"
+    }
+  }
+}

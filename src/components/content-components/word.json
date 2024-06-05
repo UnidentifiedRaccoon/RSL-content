@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_content_components_words",
+  "info": {
+    "displayName": "Word",
+    "icon": "filter"
+  },
+  "options": {},
+  "attributes": {
+    "word": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::word.word"
+    }
+  }
+}

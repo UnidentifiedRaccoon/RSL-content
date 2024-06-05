@@ -29,7 +29,11 @@
       "type": "dynamiczone",
       "components": [
         "content-components.text",
-        "content-components.video"
+        "content-components.video",
+        "content-components.html",
+        "content-components.picture",
+        "content-components.title",
+        "content-components.word"
       ]
     },
     "type": {

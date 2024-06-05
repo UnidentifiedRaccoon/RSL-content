@@ -812,7 +812,14 @@ export interface ApiStepStep extends Schema.CollectionType {
     status: Attribute.Component<'common-enums.release-status'> &
       Attribute.Required;
     content: Attribute.DynamicZone<
-      ['content-components.text', 'content-components.video']
+      [
+        'content-components.text',
+        'content-components.video',
+        'content-components.html',
+        'content-components.picture',
+        'content-components.title',
+        'content-components.word'
+      ]
     >;
     type: Attribute.Component<'common-enums.step-types'> & Attribute.Required;
     createdAt: Attribute.DateTime;
@@ -846,6 +853,9 @@ export interface ApiWordWord extends Schema.CollectionType {
       'api::category.category'
     >;
     slug: Attribute.String;
+    description: Attribute.Text;
+    picture: Attribute.Media;
+    pictureURL: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
