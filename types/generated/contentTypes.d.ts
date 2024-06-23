@@ -777,6 +777,8 @@ export interface ApiModuleModule extends Schema.CollectionType {
     >;
     status: Attribute.Component<'common-enums.release-status'> &
       Attribute.Required;
+    pictureURL: Attribute.String;
+    picture: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

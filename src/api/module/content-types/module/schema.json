@@ -30,6 +30,19 @@
       "repeatable": false,
       "component": "common-enums.release-status",
       "required": true
+    },
+    "pictureURL": {
+      "type": "string"
+    },
+    "picture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
